@@ -43,7 +43,7 @@ Beschreibung der [@parameter](http://wordpress.org/plugins/evangtermine/other_no
 == Other Notes ==
 
 = Parameter =
-Eine genaue Beschreibung der möglichen Parameter findet sich im Handbuch der [Evangelischen Termine](http://handbuch.evangelische-termine.de/Ausgabe-Parameter/). In der aufgeführten Liste sind die implementierten Parameter aufgeführt:
+Eine genaue Beschreibung der möglichen Parameter findet sich im [Handbuch der Evangelischen Termine](http://handbuch.evangelische-termine.de/Ausgabe-Parameter/). In der aufgeführten Liste sind die implementierten Parameter aufgeführt:
 
 **vid**: Veranstalter-ID(s); mehrere IDs können durch Komma getrennt werden - Beispiel: `[et_teaser vid="952,988"]`
 
@@ -69,9 +69,18 @@ Eine genaue Beschreibung der möglichen Parameter findet sich im Handbuch der [E
 
 **until**: Gibt an, ob eine Veranstaltung bis zum Enddatum angezeigt werden soll oder nicht (yes|no). Default: yes.
 
+= Widget =
+Die Beschreibung der Parameter findet sich im [Handbuch der Evangelischen Termine](http://handbuch.evangelische-termine.de/Ausgabe-Parameter/).
+
 == Screenshots ==
 
 1. Grundeinstellungen des Plugins
+2. Ausgabe des Shortcodes `[et_veranstalter]`
+3. Ausgabe des Shortcodes `[et_teaser]`
+4. Widget-Einstellungen
+5. Ausgabe des Widgets
+
+== Frequently Asked Questions ==
 
 == Changelog ==
 = 1.2 =
