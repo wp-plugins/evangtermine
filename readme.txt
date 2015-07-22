@@ -33,14 +33,16 @@ Der Shortcode `et_teaser` ruft das Teaser-Modul auf. Es wird eine Terminliste
 ohne Suchfunktion ausgegeben.
 `[et_teaser @parameter]`
 
-Beschreibung der [@parameter](http://wordpress.org/plugins/evangtermine/parameter/#Parameter)
+Beschreibung der [@parameter](http://wordpress.org/plugins/evangtermine/other_notes/#Parameter)
 
 == Installation ==
 * `evangtermine.zip` in das `/wp-content/plugins/` Verzeichnis hochladen und dort entpacken.
 * Plugin über das 'Plugins'-Menü in Wordpress aktivieren.
 * Grundeinstellungen im Menü 'Einstellungen' 'Evangelische Termine' anpassen.
 
-== Parameter ==
+== Other Notes ==
+
+= Parameter =
 Eine genaue Beschreibung der möglichen Parameter findet sich im Handbuch der [Evangelischen Termine](http://handbuch.evangelische-termine.de/Ausgabe-Parameter/). In der aufgeführten Liste sind die implementierten Parameter aufgeführt:
 
 **vid**: Veranstalter-ID(s); mehrere IDs können durch Komma getrennt werden - Beispiel: `[et_teaser vid="952,988"]`
@@ -67,17 +69,21 @@ Eine genaue Beschreibung der möglichen Parameter findet sich im Handbuch der [E
 
 **until**: Gibt an, ob eine Veranstaltung bis zum Enddatum angezeigt werden soll oder nicht (yes|no). Default: yes.
 
-== Changelog ==
-
-Hier sind die Veränderungen zwischen den einzelnen Versionen aufgezeichnet.
-
-	Version		Date			Changes
-	1.1			2015/07/02	Fixed: Sessionhandling wurde angepasst. Werte werden jetzt direkt an den Pager übergeben (Ersetzung __HOST__)
-	
-== Frequently Asked Questions ==
-
-
-
 == Screenshots ==
 
-1. Grundeinstellungen des Plugins `evangtermine`.
+1. Grundeinstellungen des Plugins
+
+== Changelog ==
+= 1.2 =
+* NEW: Dokumentation
+
+= 1.1 =
+* FIXED: Sessionhandling wurde angepasst. Werte werden jetzt direkt an den Pager übergeben (Ersetzung __HOST__)
+
+== Upgrade Notice ==
+= 1.2 =
+Die Dokumentation wurde in das Plugin aufgenommen.
+
+= 1.1 =
+Das Sessionhandling wurde angepasst. Die Werte werden jetzt direkt im Link im Pager angegeben.
+
