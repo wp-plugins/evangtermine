@@ -109,8 +109,6 @@ Die Beschreibung der Parameter findet sich im [Handbuch der Evangelischen Termin
 4. Widget-Einstellungen
 5. Ausgabe des Widgets
 
-== Frequently Asked Questions ==
-
 == Changelog ==
 = 1.2 =
 * NEW: Dokumentation
