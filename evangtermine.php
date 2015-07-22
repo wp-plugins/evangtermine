@@ -5,7 +5,6 @@
  */
 /*
 Plugin Name: Evangelische Termine
-Plugin URI: https://www.oisisi.de/evangtermine.zip
 Description: Dieses Plugin bindet die Evangelischen Termine (www.evangelische-termine.de) in Wordpress ein.
 Author: Norbert Räbiger
 Version: 1.1
