@@ -1,19 +1,19 @@
 <?php
 /**
  * @package evangtermine
- * @version 1.1
+ * @version 1.2
  */
 /*
 Plugin Name: Evangelische Termine
 Description: Dieses Plugin bindet die Evangelischen Termine (www.evangelische-termine.de) in Wordpress ein.
 Author: Norbert Räbiger
 Version: 1.1
-Author URI: https://www.oisisi.de/
+Author URI: http://www.dekanat-weilheim.de/
 License: GPLv2
 */
 
 /*
-Copyright (C) 2015 Norbert Räbiger (E-Mail: norbert.raebiger@elkb.de)
+Copyright (C) 2015 Norbert Räbiger (E-Mail: rae@dekanat-weilheim.de)
 This program is free software; you can redistribute it and/or modify it under the terms
 of the GNU General Public License as published by the Free Software Foundation; either
 version 2 of the License, or (at your option) any later version.
