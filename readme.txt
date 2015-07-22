@@ -78,7 +78,7 @@ Eine genaue Beschreibung der möglichen Parameter findet sich im Handbuch der [E
 * NEW: Dokumentation
 
 = 1.1 =
-* FIXED: Sessionhandling wurde angepasst. Werte werden jetzt direkt an den Pager übergeben (Ersetzung __HOST__)
+* FIXED: Sessionhandling wurde angepasst. Werte werden jetzt direkt an den Pager übergeben (Ersetzung `__HOST__`)
 
 == Upgrade Notice ==
 = 1.2 =
