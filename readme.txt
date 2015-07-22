@@ -12,7 +12,11 @@ Mit dem Plugin "Evangelische Termine" wird die Datenbank der "Evangelischen Term
 
 == Description ==
 Mit dem Plugin "Evangelische Termine" wird die Datenbank der "Evangelischen Termine" abgefragt und in Wordpress eingebunden. Über Shortcodes/Makros und über ein Widget wird die Anzeige für einzelne/mehrere Veranstalter oder für eine Region gesteuert.
+
 Das Plugin verwendet cURL (curl.so - http://curl.haxx.se/), um die Daten bei den Evangelischen Terminen anzufordern und abzurufen. Sollte cURL nicht auf dem Server installiert sein, muss der Abruf der Daten umgeschrieben werden.
+
+Das Plugin basiert auf zwei PHP-Skripten von Miklós Geyer von der [Vernetzten Kirche](http://www.vernetzte-kirche.de/). Das erste Skript gibt einen Filter, einen Pager und die Liste der Termine aus. Das zweite ruft die Termine ab und gibt sie ohne Filter und Pager
+aus.
 
 = Features =
 
@@ -41,6 +45,31 @@ Beschreibung der [@parameter](http://wordpress.org/plugins/evangtermine/other_no
 * Grundeinstellungen im Menü 'Einstellungen' 'Evangelische Termine' anpassen.
 
 == Other Notes ==
+= Grundeinstellungen =
+Die Grundeinstellungen finden sich im Menü 'Einstellungen' 'Evangelische
+Termine'. Die einzelnen Optionen sind:
+
+**Veranstalter-ID**: Die Veranstalter-ID wird in den Evangelischen Terminen
+nach der Anmeldung unter http://www.evangelische-termine.de/ rechts oben
+angezeigt. Möchte man mehrere Veranstalter auf der Website anzeigen lassen,
+können die IDs in einer kommagetrennten Liste angegeben werden. Es dürfen
+keine Leerzeichnen verwendet werden.
+Beispiel: id1,id2,..,idn
+
+**Dekanats-ID**: Hier kann die Dekanats-ID der Evangelischen Termine
+eingetragen werden. Sie wird an die Evangelischen Termine im Feld region
+übergeben und zeigt die Veranstaltungen aller Veranstalter innerhalb des
+Dekanats an.
+
+**Until**: Mit diesem Schalter kann ausgewählt werden, ob Veranstaltungen bis
+zum Enddatum angezeigt werden (yes|no). Default: yes.
+
+**CSS-Datei**: Über dieses Feld kann man dem Plugin eine CSS-Datei mitteilen,
+die dann statt der CSS-Datei des Plugins verwendet wird.
+
+**Encoding**: Über diesen Schalter kann die Zeichenkodierung der Website
+ausgewählt werden. Die Daten der Evangelischen Termine werden dann
+entsprechend angepasst (utf8 oder latin1). Default: utf8.
 
 = Parameter =
 Eine genaue Beschreibung der möglichen Parameter findet sich im [Handbuch der Evangelischen Termine](http://handbuch.evangelische-termine.de/Ausgabe-Parameter/). In der aufgeführten Liste sind die implementierten Parameter aufgeführt:
