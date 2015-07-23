@@ -119,7 +119,7 @@ add_shortcode( 'et_veranstalter', 'et_veranstalter_shortcode' );
 function et_teaser_shortcode( $attr, $content = null ) {
 	$a = shortcode_atts( array(
 			'vid' 			=> get_option( 'vid' ),
-			'region'		=> '',
+			'region'		=> get_option( 'region' ),
 			'eventtype'		=> ET_OPTION_EVENTTYPE,
 			'highlight'		=> ET_OPTION_HIGHLIGHT,
 			'people'		=> ET_OPTION_PEOPLE,

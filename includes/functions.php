@@ -103,7 +103,7 @@ function et_veranstalter( $et_defaults ) {
 				$querystring .= '&' . $key . '=' . $value;
 			}
 		} 
-		print_r( $querystring );
+
 		$filename='veranstaltungen-php';
 		if( $_REQUEST[ 'etID' ] != '' ) {
 			$querystring .= '&ID=' . $_REQUEST[ 'etID' ];
