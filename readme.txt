@@ -1,6 +1,5 @@
 === Evangelische Termine ===
-Contributors: Norbert Räbiger
-Author: URI: http://www.dekant-weilheim.de/
+Contributors: regibaer 
 Tags: evangelische, termine, elkb, vernetzte, kirche
 Requires at least: 3.0
 Tested up to: 4.2.2
