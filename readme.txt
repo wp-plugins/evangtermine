@@ -1,12 +1,11 @@
 === Evangelische Termine ===
-Contributors: Norbert Räbiger
-Author: URI: http://www.dekant-weilheim.de/
+Contributors: regibaer 
 Tags: evangelische, termine, elkb, vernetzte, kirche
 Requires at least: 3.0
 Tested up to: 4.2.2
 Stable tag: 1.2
-Licence: GPLv2 or later
-Licence URI: http://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Mit dem Plugin "Evangelische Termine" wird die Datenbank der "Evangelischen Termine" abgefragt und in Wordpress eingebunden.
 
