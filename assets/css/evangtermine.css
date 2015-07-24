@@ -317,6 +317,11 @@
 	color:#999;
 }
 
+.et_sharefunctions img {
+	margin-right: 5px;
+	float: left;
+}
+
 @media all and (min-width: 520px) {
  	/* responsive */
 	.et_veranstalter .et_filter_main:after {
