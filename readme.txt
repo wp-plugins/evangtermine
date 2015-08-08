@@ -1,12 +1,11 @@
 === Evangelische Termine ===
-Contributors: Norbert Räbiger
-Author: URI: http://www.dekant-weilheim.de/
+Contributors: regibaer 
 Tags: evangelische, termine, elkb, vernetzte, kirche
 Requires at least: 3.0
-Tested up to: 4.2.2
-Stable tag: 1.2
-Licence: GPLv2 or later
-Licence URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tested up to: 4.2.3
+Stable tag: 1.6
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Mit dem Plugin "Evangelische Termine" wird die Datenbank der "Evangelischen Termine" abgefragt und in Wordpress eingebunden.
 
@@ -110,6 +109,12 @@ Die Beschreibung der Parameter findet sich im [Handbuch der Evangelischen Termin
 5. Ausgabe des Widgets
 
 == Changelog ==
+= 1.6 =
+* CHANGED: __construct() in der Widget-Class
+
+= 1.5 =
+* FIXED: JavaScripts der Daten, die von den Evangelischen Terminen geliefert werden teilweise entfernt
+
 = 1.2 =
 * NEW: Dokumentation
 
@@ -117,6 +122,9 @@ Die Beschreibung der Parameter findet sich im [Handbuch der Evangelischen Termin
 * FIXED: Sessionhandling wurde angepasst. Werte werden jetzt direkt an den Pager übergeben (Ersetzung `__HOST__`)
 
 == Upgrade Notice ==
+= 1.5 =
+Bestimmte JavaScripts der Evangelischen Termine haben in manchen Themes zu Problemen geführt. Die störenden JavaScripts werden jetzt entfernt.
+
 = 1.2 =
 Die Dokumentation wurde in das Plugin aufgenommen.
 

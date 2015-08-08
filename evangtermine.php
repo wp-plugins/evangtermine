@@ -1,19 +1,19 @@
 <?php
 /**
  * @package evangtermine
- * @version 1.2
+ * @version 1.5
  */
 /*
 Plugin Name: Evangelische Termine
 Description: Dieses Plugin bindet die Evangelischen Termine (www.evangelische-termine.de) in Wordpress ein.
-Author: Norbert Räbiger
-Version: 1.1
-Author URI: http://www.dekanat-weilheim.de/
+Author: regibaer
+Version: 1.5
+Author URI: mailto:rae@de-zeit.de
 License: GPLv2
 */
 
 /*
-Copyright (C) 2015 Norbert Räbiger (E-Mail: rae@dekanat-weilheim.de)
+Copyright (C) 2015 Norbert Räbiger (E-Mail: rae@de-zeit.de)
 This program is free software; you can redistribute it and/or modify it under the terms
 of the GNU General Public License as published by the Free Software Foundation; either
 version 2 of the License, or (at your option) any later version.
@@ -80,7 +80,7 @@ require_once ( EVANGTERMINE_PLUGIN_PATH . 'includes/functions.php' );
 function et_veranstalter_shortcode( $attr, $content = null ) {
 	$a = shortcode_atts( array(
 			'vid' 		=> get_option( 'vid' ),
-			'region'	=> '',
+			'region'	=> get_option( 'region' ),
 			// 'aid'		=> '', // ist zur Zeit ohne Funktion
 			'eventtype' => ET_OPTION_EVENTTYPE,
 			'highlight'	=> ET_OPTION_HIGHLIGHT,
@@ -119,7 +119,7 @@ add_shortcode( 'et_veranstalter', 'et_veranstalter_shortcode' );
 function et_teaser_shortcode( $attr, $content = null ) {
 	$a = shortcode_atts( array(
 			'vid' 			=> get_option( 'vid' ),
-			'region'		=> '',
+			'region'		=> get_option( 'region' ),
 			'eventtype'		=> ET_OPTION_EVENTTYPE,
 			'highlight'		=> ET_OPTION_HIGHLIGHT,
 			'people'		=> ET_OPTION_PEOPLE,
@@ -143,13 +143,15 @@ add_shortcode( 'et_teaser', 'et_teaser_shortcode' );
 
 // Widget Evangelische Termine
 class ET_Widget extends WP_Widget {
-	function ET_Widget() {
-		$widget_options = array(
-			'classname'		=> 'et_widget_class',
-			'description'	=> __('Zeigt eine Liste der nächsten Veranstaltungen an.')
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		parent::__construct(
+			'ET_Widget',
+			'Evangelische Termine',
+			array ('description' =>  __('Zeigt eine Liste der nächsten Veranstaltungen an.'), )
 		);
-
-		$this->WP_Widget( 'ET_Widget', 'Evangelische Termine', $widget_options );
 	}
 	
 	function form( $instance ) {
