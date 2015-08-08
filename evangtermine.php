@@ -143,13 +143,15 @@ add_shortcode( 'et_teaser', 'et_teaser_shortcode' );
 
 // Widget Evangelische Termine
 class ET_Widget extends WP_Widget {
-	function ET_Widget() {
-		$widget_options = array(
-			'classname'		=> 'et_widget_class',
-			'description'	=> __('Zeigt eine Liste der nächsten Veranstaltungen an.')
+	/**
+	 * Register widget with WordPress.
+	 */
+	function __construct() {
+		parent::__construct(
+			'ET_Widget',
+			'Evangelische Termine',
+			array ('description' =>  __('Zeigt eine Liste der nächsten Veranstaltungen an.'), )
 		);
-
-		$this->WP_Widget( 'ET_Widget', 'Evangelische Termine', $widget_options );
 	}
 	
 	function form( $instance ) {

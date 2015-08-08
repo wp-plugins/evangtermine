@@ -3,7 +3,7 @@ Contributors: regibaer
 Tags: evangelische, termine, elkb, vernetzte, kirche
 Requires at least: 3.0
 Tested up to: 4.2.3
-Stable tag: 1.5
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -109,8 +109,12 @@ Die Beschreibung der Parameter findet sich im [Handbuch der Evangelischen Termin
 5. Ausgabe des Widgets
 
 == Changelog ==
+= 1.6 =
+* CHANGED: __construct() in der Widget-Class
+
 = 1.5 =
 * FIXED: JavaScripts der Daten, die von den Evangelischen Terminen geliefert werden teilweise entfernt
+
 = 1.2 =
 * NEW: Dokumentation
 
