@@ -130,7 +130,7 @@ function et_veranstalter( $et_defaults ) {
 				$pagecontent = str_replace( 'http://_HOST_/?', get_permalink( $post->ID ).'?'.$querystring.'&amp;', $pagecontent ); // 'https://' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'PHP_SELF' ]
 				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="http://www.evangelische-termine.de/bundles/vket/css/publicintegration.css"  />', '', $pagecontent); // Diese Stylesheets liefern im Veranstalter-Script 2.0 weitere CSS-Dateien, die allerdings nicht benötigt werden.
 				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="http://www.evangelische-termine.de/bundles/vket/js/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css"  />', '', $pagecontent); // Diese Stylesheets liefern im Veranstalter-Script 2.0 weitere CSS-Dateien, die allerdings nicht benötigt werden.
-				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="nocss"  />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
+				$pagecontent = str_replace( '<link href="nocss" media="screen, projection" rel="stylesheet" type="text/css" />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
 				
 				if( 'veranstaltungen-php' == $filename ) {
 					$pagecontent = str_replace( '<script type="text/javascript" src="http://www.evangelische-termine.de/js/e19e663.js"></script>', '', $pagecontent);
@@ -217,6 +217,7 @@ function et_teaser( $et_defaults ) {
 			$pagecontent = curl_exec( $sobl );
 			$sobl_info = curl_getinfo( $sobl );
 			if( '200' == $sobl_info['http_code'] ){
+				$pagecontent = str_replace( '<link href="nocss" media="screen, projection" rel="stylesheet" type="text/css" />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
 				$content = $pagecontent;
 			} else {
 				$content = 'Der Terminkalender ist derzeit nicht erreichbar!';
