@@ -125,22 +125,47 @@ function et_veranstalter( $et_defaults ) {
 				$pagecontent = str_replace( '<div id="et_headline"><h1>Veranstaltungen</h1></div>', '', $pagecontent );
 				$pagecontent = str_replace( '<h1>', '<h2>', $pagecontent );
 				$pagecontent = str_replace( '</h1>', '</h2>', $pagecontent );
+				$pagecontent = str_replace( '<h1 id="et_detail_title">', '<h2 id="et_detail_title">', $pagecontent );
 				$pagecontent = str_replace( '/Upload/', 'http://' . $host . '/Upload/', $pagecontent );
 				$pagecontent = str_replace( 'http://_HOST_/?', get_permalink( $post->ID ).'?'.$querystring.'&amp;', $pagecontent ); // 'https://' . $_SERVER[ 'HTTP_HOST' ] . $_SERVER[ 'PHP_SELF' ]
 				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="http://www.evangelische-termine.de/bundles/vket/css/publicintegration.css"  />', '', $pagecontent); // Diese Stylesheets liefern im Veranstalter-Script 2.0 weitere CSS-Dateien, die allerdings nicht benötigt werden.
 				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="http://www.evangelische-termine.de/bundles/vket/js/jquery/css/smoothness/jquery-ui-1.10.3.custom.min.css"  />', '', $pagecontent); // Diese Stylesheets liefern im Veranstalter-Script 2.0 weitere CSS-Dateien, die allerdings nicht benötigt werden.
-				$pagecontent = str_replace( '<link rel="stylesheet" type="text/css" href="nocss"  />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
-				$pagecontent = str_replace( '<script type="text/javascript" src="http://www.evangelische-termine.de/js/e19e663.js"></script>', '', $pagecontent);
-				$pagecontent = str_replace( '<script language="javascript" type="text/javascript">', '', $pagecontent);
-				$pagecontent = str_replace( '$(function() {', '', $pagecontent);
-				$pagecontent = str_replace( 'dateoptions[\'changeMonth\'] = true;', '', $pagecontent);
-				$pagecontent = str_replace( 'dateoptions[\'changeYear\'] = true;', '', $pagecontent);
-				$pagecontent = str_replace( 'dateoptions[\'showButtonPanel\'] = true;', '', $pagecontent);
-				$pagecontent = str_replace( 'dateoptions[\'minDate\'] = -0;', '', $pagecontent);
-				$pagecontent = str_replace( '$(\'#date\').datepicker(dateoptions);', '', $pagecontent);
-				$pagecontent = str_replace( '});', '', $pagecontent);
-				$pagecontent = str_replace( 'function ET_openWindow(etURL,windowName,features) { window.open(etURL,windowName,features);}', '', $pagecontent);
-				$pagecontent = str_replace( '</script>', '', $pagecontent);
+				$pagecontent = str_replace( '<link href="nocss" media="screen, projection" rel="stylesheet" type="text/css" />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
+				
+				if( 'veranstaltungen-php' == $filename ) {
+					$pagecontent = str_replace( '<script type="text/javascript" src="http://www.evangelische-termine.de/js/e19e663.js"></script>', '', $pagecontent);
+/*
+					$pagecontent = str_replace( '<script language="javascript" type="text/javascript">', '', $pagecontent);
+					$pagecontent = str_replace( '$(function() {', '', $pagecontent);
+					$pagecontent = str_replace( 'dateoptions[\'changeMonth\'] = true;', '', $pagecontent);
+					$pagecontent = str_replace( 'dateoptions[\'changeYear\'] = true;', '', $pagecontent);
+					$pagecontent = str_replace( 'dateoptions[\'showButtonPanel\'] = true;', '', $pagecontent);
+					$pagecontent = str_replace( 'dateoptions[\'minDate\'] = -0;', '', $pagecontent);
+					$pagecontent = str_replace( '$(\'#date\').datepicker(dateoptions);', '', $pagecontent);
+					$pagecontent = str_replace( '});', '', $pagecontent);
+					$pagecontent = str_replace( 'function ET_openWindow(etURL,windowName,features) { window.open(etURL,windowName,features);}', '', $pagecontent);
+					$pagecontent = str_replace( '</script>', '', $pagecontent);
+*/
+				}
+				if( 'detail-php' == $filename ) {
+					$pagecontent = str_replace( '<script type="text/javascript" src="http://www.evangelische-termine.de/js/fa34c0d.js"></script><script language="javascript" type="text/javascript">', '', $pagecontent);
+					$pagecontent = str_replace( '$(function() {', '', $pagecontent);
+					$pagecontent = str_replace( '$(\'#et_place_image_th\').livequery(function(){', '', $pagecontent);
+					$pagecontent = str_replace( '$(this)', '', $pagecontent);
+					$pagecontent = str_replace( '.mouseover(function() {', '', $pagecontent);
+					$pagecontent = str_replace( '$(this).hide();', '', $pagecontent);
+					$pagecontent = str_replace( '$(\'#et_place_image\').slideDown();', '', $pagecontent);
+					$pagecontent = str_replace( '});', '', $pagecontent); 
+					$pagecontent = str_replace( '$(\'#et_place_image\').livequery(function(){', '', $pagecontent);
+					$pagecontent = str_replace( '$(this)', '', $pagecontent); 
+					$pagecontent = str_replace( '.mouseout(function() {', '', $pagecontent); 
+					$pagecontent = str_replace( '$(this).slideUp();', '', $pagecontent);
+					$pagecontent = str_replace( '$(\'#et_place_image_th\').show();', '', $pagecontent);
+					$pagecontent = str_replace( 'function ET_openWindow(etURL,windowName,features) { window.open(etURL,windowName,features);}', '', $pagecontent);
+					$pagecontent = str_replace( '</script>', '', $pagecontent);
+					$pagecontent = str_replace( '.hide();', '', $pagecontent);
+					$pagecontent = str_replace( '.slideUp();', '', $pagecontent);
+				}
 				$content = $pagecontent;
 			} else {
 				$content = 'Der Terminkalender ist derzeit nicht erreichbar!';
@@ -192,6 +217,7 @@ function et_teaser( $et_defaults ) {
 			$pagecontent = curl_exec( $sobl );
 			$sobl_info = curl_getinfo( $sobl );
 			if( '200' == $sobl_info['http_code'] ){
+				$pagecontent = str_replace( '<link href="nocss" media="screen, projection" rel="stylesheet" type="text/css" />', '', $pagecontent); // Mit der Angabe nocss wird verhindert, dass das CSS der Evangelischen Termine geladen wird. Durch diese Zeile wird der Code aus dem HTML gelöscht.
 				$content = $pagecontent;
 			} else {
 				$content = 'Der Terminkalender ist derzeit nicht erreichbar!';
