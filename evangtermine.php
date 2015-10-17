@@ -1,13 +1,13 @@
 <?php
 /**
  * @package evangtermine
- * @version 1.7
+ * @version 1.8
  */
 /*
 Plugin Name: Evangelische Termine
 Description: Dieses Plugin bindet die Evangelischen Termine (www.evangelische-termine.de) in Wordpress ein.
 Author: regibaer
-Version: 1.7
+Version: 1.8
 Tested up to: 4.3
 Author URI: mailto:rae@de-zeit.de
 License: GPLv2
@@ -43,6 +43,8 @@ define( 'ET_OPTION_DEST', 'extern' );
 define( 'ET_DEFAULT_CHARSET', 'utf8' );
 define( 'ET_TEMPLATE_TEASER_SHORTCODE', '1' );
 define( 'ET_TEMPLATE_TEASER_WIDGET', '2');
+define( 'ET_DEFAULT_PROTOCOL', 'http://' );
+define( 'ET_DEFAULT_HOST', 'www.evangelische-termine.de' );
 
 // Pluginpfad
 define( 'EVANGTERMINE_PLUGIN_PATH', plugin_dir_path( __FILE__ ) );
@@ -82,7 +84,6 @@ function et_veranstalter_shortcode( $attr, $content = null ) {
 	$a = shortcode_atts( array(
 			'vid' 		=> get_option( 'vid' ),
 			'region'	=> get_option( 'region' ),
-			// 'aid'		=> '', // ist zur Zeit ohne Funktion
 			'eventtype' => ET_OPTION_EVENTTYPE,
 			'highlight'	=> ET_OPTION_HIGHLIGHT,
 			'people'	=> ET_OPTION_PEOPLE,
@@ -283,8 +284,24 @@ add_action( 'widgets_init', 'et_register_widget' );
  */
 add_action( 'wp_head', 'et_include_css' );
 function et_include_css () {
-	$css = plugins_url( 'assets/css/evangtermine.css', EVANGTERMINE_PLUGIN_PATH . 'evangtermine' );
+	if( get_option( 'css' ) ) {
+		$css = get_option( 'css' );
+	} else {
+		$css = plugins_url( 'assets/css/evangtermine.css', EVANGTERMINE_PLUGIN_PATH . 'evangtermine' );
+	}
 	$output = '<link href="' . $css . '" media="screen, projection" rel ="stylesheet" type="text/css" />';
 	echo $output;
+}
+
+/*
+ *  Optionspage auf der Pluginseite aufrufbar
+ *
+ *	@since 1.8
+ */
+add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'et_plugin_actions' );
+
+function et_plugin_actions( $links ) {
+	$links[] = '<a href="'. esc_url( get_admin_url(null, 'options-general.php?page=options.php') ) .'">Einstellungen</a>';
+	return $links;
 }
 ?>
